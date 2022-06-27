@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-select-memory-repro';
+  public isSelectVisible: boolean = true;
+
+  public observable = of([{ value: 'test' }]);
+
+  public selectedValue: any;
+
+  public toggle() {
+    this.isSelectVisible = !this.isSelectVisible;
+  }
 }
